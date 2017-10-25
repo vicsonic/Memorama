@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */; };
-		577A57E21FA00D4200BBC1B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57E11FA00D4200BBC1B9 /* ViewController.swift */; };
+		577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */; };
 		577A57E51FA00D4200BBC1B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577A57E31FA00D4200BBC1B9 /* Main.storyboard */; };
 		577A57E71FA00D4200BBC1B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577A57E61FA00D4200BBC1B9 /* Assets.xcassets */; };
 		577A57EA1FA00D4200BBC1B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577A57E81FA00D4200BBC1B9 /* LaunchScreen.storyboard */; };
+		577A57F21FA01FE800BBC1B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57F11FA01FE800BBC1B9 /* GameViewController.swift */; };
+		577A57F41FA0216400BBC1B9 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57F31FA0216400BBC1B9 /* CardCollectionViewCell.swift */; };
+		577A57F61FA021FA00BBC1B9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57F51FA021FA00BBC1B9 /* Card.swift */; };
+		577A57F81FA0220B00BBC1B9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57F71FA0220B00BBC1B9 /* Game.swift */; };
+		577A57FA1FA02E2600BBC1B9 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57F91FA02E2600BBC1B9 /* Layout.swift */; };
+		577A57FC1FA04AC300BBC1B9 /* PrizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57FB1FA04AC300BBC1B9 /* PrizeViewController.swift */; };
+		577A58021FA04C3100BBC1B9 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		577A57DC1FA00D4200BBC1B9 /* Memorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		577A57E11FA00D4200BBC1B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		577A57E41FA00D4200BBC1B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		577A57E61FA00D4200BBC1B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		577A57E91FA00D4200BBC1B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		577A57EB1FA00D4200BBC1B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		577A57F11FA01FE800BBC1B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		577A57F31FA0216400BBC1B9 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		577A57F51FA021FA00BBC1B9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		577A57F71FA0220B00BBC1B9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		577A57F91FA02E2600BBC1B9 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		577A57FB1FA04AC300BBC1B9 /* PrizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeViewController.swift; sourceTree = "<group>"; };
+		577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,53 @@
 		577A57DE1FA00D4200BBC1B9 /* Memorama */ = {
 			isa = PBXGroup;
 			children = (
+				577A58001FA04AF600BBC1B9 /* Storyboards */,
+				577A57FF1FA04AEB00BBC1B9 /* Views */,
+				577A57FE1FA04AD100BBC1B9 /* ViewControllers */,
+				577A57FD1FA04ACA00BBC1B9 /* Models */,
 				577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */,
-				577A57E11FA00D4200BBC1B9 /* ViewController.swift */,
-				577A57E31FA00D4200BBC1B9 /* Main.storyboard */,
 				577A57E61FA00D4200BBC1B9 /* Assets.xcassets */,
-				577A57E81FA00D4200BBC1B9 /* LaunchScreen.storyboard */,
 				577A57EB1FA00D4200BBC1B9 /* Info.plist */,
 			);
 			path = Memorama;
+			sourceTree = "<group>";
+		};
+		577A57FD1FA04ACA00BBC1B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				577A57F91FA02E2600BBC1B9 /* Layout.swift */,
+				577A57F71FA0220B00BBC1B9 /* Game.swift */,
+				577A57F51FA021FA00BBC1B9 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		577A57FE1FA04AD100BBC1B9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */,
+				577A57FB1FA04AC300BBC1B9 /* PrizeViewController.swift */,
+				577A57F11FA01FE800BBC1B9 /* GameViewController.swift */,
+				577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		577A57FF1FA04AEB00BBC1B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				577A57F31FA0216400BBC1B9 /* CardCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		577A58001FA04AF600BBC1B9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				577A57E31FA00D4200BBC1B9 /* Main.storyboard */,
+				577A57E81FA00D4200BBC1B9 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				577A57E21FA00D4200BBC1B9 /* ViewController.swift in Sources */,
+				577A57F41FA0216400BBC1B9 /* CardCollectionViewCell.swift in Sources */,
+				577A57F81FA0220B00BBC1B9 /* Game.swift in Sources */,
+				577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */,
+				577A58021FA04C3100BBC1B9 /* InstructionsViewController.swift in Sources */,
+				577A57F61FA021FA00BBC1B9 /* Card.swift in Sources */,
+				577A57FA1FA02E2600BBC1B9 /* Layout.swift in Sources */,
+				577A57F21FA01FE800BBC1B9 /* GameViewController.swift in Sources */,
+				577A57FC1FA04AC300BBC1B9 /* PrizeViewController.swift in Sources */,
 				577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37RT5AB87J;
 				INFOPLIST_FILE = Memorama/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.radialloop.Memorama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37RT5AB87J;
 				INFOPLIST_FILE = Memorama/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.radialloop.Memorama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
