@@ -8,20 +8,26 @@
 
 import UIKit
 
+enum Prize : Int {
+    case None
+    case Textile
+    case Sneakers
+}
+
 class PrizeViewController: UIViewController {
     
-    enum Mode : String {
-        case Sneakers
-        case Textile
-    }
+    var prize: Prize = .Textile
     
-    var mode: Mode = .Textile
-    
+    @IBOutlet weak var prizeButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(named: mode.rawValue)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        imageView.image = UIImage(named: "\(prize.rawValue)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,15 +35,10 @@ class PrizeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Actions
+    
+    @IBAction func prizeButtonPressed(_ sender: Any) {
+        showRegisterViewController()
     }
-    */
-
+    
 }

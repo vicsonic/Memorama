@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571A6BEC1FA0CD5D00AD25F8 /* DINOT-CondMedium_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */; };
+		571A6BED1FA0CD5D00AD25F8 /* DINPro-CondBold_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */; };
 		577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */; };
 		577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */; };
 		577A57E51FA00D4200BBC1B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577A57E31FA00D4200BBC1B9 /* Main.storyboard */; };
@@ -19,9 +21,13 @@
 		577A57FA1FA02E2600BBC1B9 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57F91FA02E2600BBC1B9 /* Layout.swift */; };
 		577A57FC1FA04AC300BBC1B9 /* PrizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57FB1FA04AC300BBC1B9 /* PrizeViewController.swift */; };
 		577A58021FA04C3100BBC1B9 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */; };
+		EF7B8F04782CDA6FD4E2A9F9 /* Pods_Memorama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72CF18C8CBBA0AE84F193CD /* Pods_Memorama.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		547BF275C08700E3E4484E60 /* Pods-Memorama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memorama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memorama/Pods-Memorama.release.xcconfig"; sourceTree = "<group>"; };
+		571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINOT-CondMedium_0.otf"; sourceTree = "<group>"; };
+		571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-CondBold_0.otf"; sourceTree = "<group>"; };
 		577A57DC1FA00D4200BBC1B9 /* Memorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		577A57F91FA02E2600BBC1B9 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		577A57FB1FA04AC300BBC1B9 /* PrizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeViewController.swift; sourceTree = "<group>"; };
 		577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		755472B1D29675F90559FA79 /* Pods-Memorama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memorama.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memorama/Pods-Memorama.debug.xcconfig"; sourceTree = "<group>"; };
+		F72CF18C8CBBA0AE84F193CD /* Pods_Memorama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memorama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +51,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7B8F04782CDA6FD4E2A9F9 /* Pods_Memorama.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19BF286BFA4757FBFC576832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				755472B1D29675F90559FA79 /* Pods-Memorama.debug.xcconfig */,
+				547BF275C08700E3E4484E60 /* Pods-Memorama.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		571A6BE81FA0CD5C00AD25F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				571A6BE91FA0CD5C00AD25F8 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		571A6BE91FA0CD5C00AD25F8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */,
+				571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		577A57D31FA00D4200BBC1B9 = {
 			isa = PBXGroup;
 			children = (
 				577A57DE1FA00D4200BBC1B9 /* Memorama */,
 				577A57DD1FA00D4200BBC1B9 /* Products */,
+				19BF286BFA4757FBFC576832 /* Pods */,
+				7F896AD06A3C2E352EB5839E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +105,7 @@
 		577A57DE1FA00D4200BBC1B9 /* Memorama */ = {
 			isa = PBXGroup;
 			children = (
+				571A6BE81FA0CD5C00AD25F8 /* Resources */,
 				577A58001FA04AF600BBC1B9 /* Storyboards */,
 				577A57FF1FA04AEB00BBC1B9 /* Views */,
 				577A57FE1FA04AD100BBC1B9 /* ViewControllers */,
@@ -117,6 +155,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		7F896AD06A3C2E352EB5839E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F72CF18C8CBBA0AE84F193CD /* Pods_Memorama.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 577A57EE1FA00D4200BBC1B9 /* Build configuration list for PBXNativeTarget "Memorama" */;
 			buildPhases = (
+				F5BE65024684484F20288202 /* [CP] Check Pods Manifest.lock */,
 				577A57D81FA00D4200BBC1B9 /* Sources */,
 				577A57D91FA00D4200BBC1B9 /* Frameworks */,
 				577A57DA1FA00D4200BBC1B9 /* Resources */,
+				D01FA47C4785C24D5F89579F /* [CP] Embed Pods Frameworks */,
+				E24E454BEF22120C2AF6C9C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,13 +225,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571A6BEC1FA0CD5D00AD25F8 /* DINOT-CondMedium_0.otf in Resources */,
 				577A57EA1FA00D4200BBC1B9 /* LaunchScreen.storyboard in Resources */,
 				577A57E71FA00D4200BBC1B9 /* Assets.xcassets in Resources */,
+				571A6BED1FA0CD5D00AD25F8 /* DINPro-CondBold_0.otf in Resources */,
 				577A57E51FA00D4200BBC1B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D01FA47C4785C24D5F89579F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Memorama/Pods-Memorama-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Memorama/Pods-Memorama-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E24E454BEF22120C2AF6C9C4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Memorama/Pods-Memorama-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5BE65024684484F20288202 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Memorama-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		577A57D81FA00D4200BBC1B9 /* Sources */ = {
@@ -332,6 +441,7 @@
 		};
 		577A57EF1FA00D4200BBC1B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 755472B1D29675F90559FA79 /* Pods-Memorama.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -348,6 +458,7 @@
 		};
 		577A57F01FA00D4200BBC1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 547BF275C08700E3E4484E60 /* Pods-Memorama.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

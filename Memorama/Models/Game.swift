@@ -20,13 +20,23 @@ class Game {
     static let maxNumberOfTurns = 3
     
     let images = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    static let prizes: [String : Prize] = ["A": .Sneakers,
+                                           "B": .Sneakers,
+                                           "C": .Sneakers,
+                                           "D": .Sneakers,
+                                           "E": .Sneakers,
+                                           "F": .Textile,
+                                           "G": .Textile,
+                                           "H": .Textile,
+                                           "I": .Textile,
+                                           "J": .Textile]
     var cards: [Card] = []
-    var foundCards: [String] = []
+    var foundPrizes: [Int] = []
     var currentCardIndex: Int? = nil
     var inTurn: Bool = false
     var numberOfPairsFound: Int = 0
     var numberOfTurns: Int = 0
-    var prize: PrizeViewController.Mode = .Textile
+    var prize: Prize = .None
     
     func startGame() {
         var cards: [Card] = []
@@ -65,7 +75,7 @@ class Game {
         let currentCard = cardAtIndex(index: currentIndex)
         let card = cardAtIndex(index: index)
         if currentCard.identifier.uuidString == card.identifier.uuidString {
-            foundCards.append(currentCard.identifier.uuidString)
+            updateFoundPrizesWith(prize: card.prize)
             currentCard.found = true
             card.found = true
             cards[currentIndex] = currentCard
@@ -78,6 +88,19 @@ class Game {
             numberOfTurns += 1
             completion(.None, currentIndex, index)
             currentCardIndex = nil
+        }
+    }
+    
+    private func updateFoundPrizesWith(prize: Prize) {
+        foundPrizes.append(prize.rawValue)
+        var counts = [Int: Int]()
+        foundPrizes.forEach { counts[$0] = (counts[$0] ?? 0) + 1 }
+        if let (priceValue, _) = counts.first(where: { key, value -> Bool in
+            return value >= 2
+        }), let prize = Prize(rawValue: priceValue) {
+            self.prize = prize
+        } else {
+            self.prize = .None
         }
     }
     

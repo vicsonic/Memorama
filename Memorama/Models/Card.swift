@@ -36,15 +36,18 @@ class Card {
     var identifier = UUID()
     var image: UIImage
     var found: Bool = false
+    var prize: Prize = .None
     
     init(imageName: String) {
         self.image = UIImage(named: imageName)!
+        self.prize = Game.prizes[imageName]!
     }
     
     init(card: Card) {
         self.identifier = card.identifier
         self.image = card.image
         self.found = card.found
+        self.prize = card.prize
     }
     
 }

@@ -8,6 +8,36 @@
 
 import UIKit
 
+protocol NotificationRepresentable : RawRepresentable {
+    var notificationName: NSNotification.Name { get }
+}
+
+extension NotificationRepresentable
+where Self.RawValue == String {
+    var notificationName: NSNotification.Name {
+        return NSNotification.Name(self.rawValue)
+    }
+}
+extension NotificationCenter {
+    
+    enum NotificationIdentifier : String, NotificationRepresentable {
+        case ResetRegisterScreenNotification
+    }
+    
+    static let ResetRegisterScreenNotification = "ResetRegisterScreen"
+    class func resetRegisterScreen() {
+        NotificationCenter.default.post(name: NotificationCenter.NotificationIdentifier.ResetRegisterScreenNotification.notificationName,
+                                        object: nil)
+    }
+}
+
+extension UIViewController {
+    func showRegisterViewController() {
+        NotificationCenter.resetRegisterScreen()
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
 class GameViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -39,7 +69,14 @@ extension GameViewController { // MARK: - Game
         }
         checkingGameStatus = true
         if game.isFinished {
-            showPrizeViewController()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+                switch self.game.prize {
+                case .None:
+                    self.showRegisterViewController()
+                case .Textile, .Sneakers:
+                    self.showPrizeViewController()
+                }
+            }
         } else {
             checkingGameStatus = false
         }
@@ -49,12 +86,13 @@ extension GameViewController { // MARK: - Game
 extension GameViewController { // MARK: - Navigation
     
     fileprivate func showPrizeViewController() {
-        self.performSegue(withIdentifier: "ShowPrize", sender: self)
+        performSegue(withIdentifier: "ShowPrize", sender: self)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier, identifier == "ShowPrize", let priceViewController = segue.destination as? PrizeViewController {
-            priceViewController.mode = game.prize
+            priceViewController.prize = game.prize
         }
     }
 }

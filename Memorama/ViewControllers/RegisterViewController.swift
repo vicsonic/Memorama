@@ -8,24 +8,117 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+extension UIColor {
+    class var appDarkBlue : UIColor {
+        return UIColor(red:0.004, green:0.302, blue:0.525, alpha:1.000)
+    }
+}
+
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ticketTextField: UITextField!
+    @IBOutlet weak var ticketLabel: UILabel!
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!    
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        addNotificationObserver()
+        resetForm()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        removeNotificationObserver()
+    }
+    
+    // MARK: - Notifications
+    
+    fileprivate func addNotificationObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(RegisterViewController.resetForm),
+                                               name: NotificationCenter.NotificationIdentifier.ResetRegisterScreenNotification.notificationName,
+                                               object: nil)
+    }
+    
+    fileprivate func removeNotificationObserver() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NotificationCenter.NotificationIdentifier.ResetRegisterScreenNotification.notificationName,
+                                                  object: nil)
+    }
+    
+    // MARK: - Form
+    
+    @objc fileprivate func resetForm() {
+        nameLabel.textColor = .appDarkBlue
+        ticketLabel.textColor = .appDarkBlue
+        amountLabel.textColor = .appDarkBlue
+        nameTextField.text = nil
+        ticketTextField.text = nil
+        amountTextField.text = nil
+        emailTextField.text = nil
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
     
     // MARK: - Actions
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "ShowInstructions", sender: self)
+        showGame()
+//        validateForm()
+    }
+    
+    // MARK: - Validations
+    
+    fileprivate func validateForm() {
+        var validName = false
+        if let name = nameTextField.text, name.count > 0 {
+            validName = true
+            nameLabel.textColor = .appDarkBlue
+        } else {
+            nameLabel.textColor = .red
+        }
+        var validTicket = false
+        if let ticket = ticketTextField.text, ticket.count > 0 {
+            validTicket = true
+            ticketLabel.textColor = .appDarkBlue
+        } else {
+            ticketLabel.textColor = .red
+        }
+        var validAmount = false
+        if let amount = amountTextField.text, amount.count > 0 {
+            validAmount = true
+            amountLabel.textColor = .appDarkBlue
+        } else {
+            amountLabel.textColor = .red
+        }
+        let validForm = validName && validTicket && validAmount
+        if validForm {
+            showGame()
+        } else {
+            let alert = UIAlertController(title: "Registro", message: "Revisa que tus datos estén correctos", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    fileprivate func showGame() {
+        performSegue(withIdentifier: "ShowInstructions", sender: self)
     }
     
 }
