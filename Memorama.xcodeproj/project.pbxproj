@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5703C4A31FA2276700A486CB /* CSVExportOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703C4A11FA2276700A486CB /* CSVExportOperation.swift */; };
+		5703C4A41FA2276700A486CB /* CSVExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5703C4A21FA2276700A486CB /* CSVExport.swift */; };
 		571A6BEC1FA0CD5D00AD25F8 /* DINOT-CondMedium_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */; };
 		571A6BED1FA0CD5D00AD25F8 /* DINPro-CondBold_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */; };
 		571B92801FA18AE700C5A383 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571B927F1FA18AE700C5A383 /* Database.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		547BF275C08700E3E4484E60 /* Pods-Memorama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memorama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memorama/Pods-Memorama.release.xcconfig"; sourceTree = "<group>"; };
+		5703C4A11FA2276700A486CB /* CSVExportOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVExportOperation.swift; sourceTree = "<group>"; };
+		5703C4A21FA2276700A486CB /* CSVExport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVExport.swift; sourceTree = "<group>"; };
 		571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINOT-CondMedium_0.otf"; sourceTree = "<group>"; };
 		571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-CondBold_0.otf"; sourceTree = "<group>"; };
 		571B927F1FA18AE700C5A383 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -73,6 +77,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5703C49F1FA2276700A486CB /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				5703C4A01FA2276700A486CB /* CSVExport */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		5703C4A01FA2276700A486CB /* CSVExport */ = {
+			isa = PBXGroup;
+			children = (
+				5703C4A11FA2276700A486CB /* CSVExportOperation.swift */,
+				5703C4A21FA2276700A486CB /* CSVExport.swift */,
+			);
+			path = CSVExport;
+			sourceTree = "<group>";
+		};
 		571A6BE81FA0CD5C00AD25F8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +132,7 @@
 		577A57DE1FA00D4200BBC1B9 /* Memorama */ = {
 			isa = PBXGroup;
 			children = (
+				5703C49F1FA2276700A486CB /* Vendor */,
 				571A6BE81FA0CD5C00AD25F8 /* Resources */,
 				577A58001FA04AF600BBC1B9 /* Storyboards */,
 				577A57FF1FA04AEB00BBC1B9 /* Views */,
@@ -269,12 +291,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Memorama/Pods-Memorama-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,9 +352,11 @@
 				577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */,
 				577A58021FA04C3100BBC1B9 /* InstructionsViewController.swift in Sources */,
 				577A57F61FA021FA00BBC1B9 /* Card.swift in Sources */,
+				5703C4A31FA2276700A486CB /* CSVExportOperation.swift in Sources */,
 				577A57FA1FA02E2600BBC1B9 /* Layout.swift in Sources */,
 				577A57F21FA01FE800BBC1B9 /* GameViewController.swift in Sources */,
 				577A57FC1FA04AC300BBC1B9 /* PrizeViewController.swift in Sources */,
+				5703C4A41FA2276700A486CB /* CSVExport.swift in Sources */,
 				571B92801FA18AE700C5A383 /* Database.swift in Sources */,
 				577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */,
 				576C2D5B1FA19BA80015FC32 /* RecordsViewController.swift in Sources */,

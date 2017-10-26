@@ -25,8 +25,11 @@ class CardCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func configureWithCard(card: Card){
+    func configureWithCard(card: Card, debug: Bool = false){
         frontImage.image = card.image
+        if(debug){
+            backImage.image = card.image
+        }
         if(card.found){
             backImage.isHidden = true
             frontImage.isHidden = false

@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 
 // Record model
-class Record: Object {
+class Record: Object, CSVExporting {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var nombre = ""
     @objc dynamic var ticket = ""
@@ -22,8 +22,21 @@ class Record: Object {
     @objc dynamic var fecha = ""
     @objc dynamic var tienda = ""
     @objc dynamic var correo_enviado = ""
+    
+    // MARK: - Primary Key
+    
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    // MARK: - CSVExporting
+    
+    static func templateString() -> String {        
+        return "id, nombre, ticket, monto, email, gano, premio, fecha, tienda\n"
+    }
+    
+    func exportAsCommaSeparatedString() -> String {
+        return "\(self.id), \(self.nombre), \(self.ticket), \(self.monto), \(self.email), \(self.gano), \(self.premio), \(self.fecha), \(self.tienda)\n"
     }
 }
 
@@ -106,8 +119,7 @@ class Database {
             }
             
             let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .short
+            formatter.dateFormat = "dd-MMMM-yyyy hh:mm a"
             
             record.fecha = formatter.string(from: Date())
             record.tienda = store
@@ -120,6 +132,52 @@ class Database {
         } else {
             completion(nil)
         }
-        
     }
+    
+    func deleteRecords(_ records: Results<Record>) {
+        if let realm = realm {
+            try! realm.write {
+                realm.delete(records)
+            }
+            realm.refresh()
+        }
+    }
+    
+    func markRecordsAsSent(_ records: Results<Record>) {
+        if let realm = realm {
+            try! realm.write {
+                for record in records {
+                    record.correo_enviado = "si"
+                }
+            }
+            realm.refresh()
+        }
+    }
+}
+
+extension FileManager {
+    
+    class func prepareCSVFileForRecords(completion: ((Data?)->())? ) {
+        let documents = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        guard let path = documents.first else { return }
+        let filePath = String(NSString(string:path).appendingPathComponent("Records.csv"))
+        guard let url = URL(string: filePath) else { return }
+        guard let records = Database.shared.pendingRecords else { return }
+        let items = Array(records)
+        let operation = CSVOperation(filePath: url, source: items)
+        operation.completionBlock = {
+            if operation.finishedState == .success {
+                if let fileHandle = FileHandle(forReadingAtPath: filePath) {
+                    let data = fileHandle.readDataToEndOfFile()
+                    completion?(data)
+                } else {
+                    completion?(nil)
+                }
+            } else {
+                completion?(nil)
+            }
+        }
+        OperationQueue.main.addOperation(operation)
+    }
+    
 }

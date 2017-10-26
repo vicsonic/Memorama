@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol NotificationRepresentable : RawRepresentable {
     var notificationName: NSNotification.Name { get }
@@ -71,16 +72,19 @@ extension GameViewController { // MARK: - Game
         checkingGameStatus = true
         if game.isFinished {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                SVProgressHUD.show()
                 self.saveGame({ record in
-                    if let record = record {
-                        print(record)
+                    if let _ = record {
                         switch self.game.prize {
                         case .None:
                             self.showRegisterViewController()
                         case .Textile, .Sneakers:
                             self.showPrizeViewController()
                         }
+                    } else {
+                        self.showRegisterViewController()
                     }
+                    SVProgressHUD.dismiss()
                 })
             }
         } else {

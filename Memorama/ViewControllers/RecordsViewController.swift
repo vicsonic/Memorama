@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MessageUI
+import SVProgressHUD
 
 class RecordsViewController: UITableViewController {
     
@@ -20,6 +22,7 @@ class RecordsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: .zero)
+        reloadRecords()
         updateControls()
     }
 
@@ -35,6 +38,11 @@ class RecordsViewController: UITableViewController {
     }
     
     // MARK: - Records
+    
+    fileprivate func reloadRecords() {
+        pendingRecords = Database.shared.pendingRecords
+        sentRecords = Database.shared.sentRecords
+    }
     
     var numberOfPendingRecords: Int {
         if let pendingRecords = pendingRecords {
@@ -115,11 +123,76 @@ class RecordsViewController: UITableViewController {
     // MARK: - Record Actions
     
     fileprivate func deleteSentRecords() {
-        
+        if let sentRecords = sentRecords {
+            SVProgressHUD.show()
+            Database.shared.deleteRecords(sentRecords)
+            reloadRecords()
+            tableView.reloadData()
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    fileprivate func markPendingRecordsAsSent() {
+        if let pendingRecords = self.pendingRecords {
+            SVProgressHUD.show()
+            Database.shared.markRecordsAsSent(pendingRecords)
+            self.reloadRecords()
+            self.tableView.reloadData()
+            SVProgressHUD.dismiss()
+        }
     }
     
     fileprivate func sendPendingRecords() {
-        
+        SVProgressHUD.show()
+        FileManager.prepareCSVFileForRecords { data in
+            if let data = data {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.sendEmailWith(data: data)
+                }
+            }
+        }
+    }
+}
+
+extension RecordsViewController : MFMailComposeViewControllerDelegate {
+    
+    // MARK: - Email
+    fileprivate func sendEmailWith(data: Data) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+            mailComposer.addAttachmentData(data, mimeType: "text/csv", fileName: "Registros_Reebok.csv")
+            present(mailComposer, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Enviar Correo", message: "Verifica que el dispositivo tenga una cuenta de correo dada de alta", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                UIApplication.shared.open(URL(string:"App-Prefs:root=General")!, options: [:], completionHandler: nil)
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled, .saved:
+            break
+        case .failed:
+            let alert = UIAlertController(title: "Enviar Correo", message: "Ocurrió un problema al enviar el correo, intenta nuevamente", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.sendPendingRecords()
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        case .sent:
+            let alert = UIAlertController(title: "Correo Enviado", message: "Registros Enviados Exitosamente", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.markPendingRecordsAsSent()
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
 }

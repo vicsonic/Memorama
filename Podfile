@@ -9,5 +9,5 @@ target 'Memorama' do
   pod 'Crashlytics'
   pod 'RealmSwift'
   pod 'TPKeyboardAvoiding', '~> 1.3'
-
+  pod 'SVProgressHUD'
 end

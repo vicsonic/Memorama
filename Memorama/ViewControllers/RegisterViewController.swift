@@ -33,7 +33,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()        
         addNotificationObserver()
-        resetForm(debug: true)
+        resetForm()
     }
 
     override func didReceiveMemoryWarning() {
