@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var game = Game()
+    var register = Register()
     var layout = Layout(colums: 4, rows: 5, insets: UIEdgeInsets(top: 60, left: 40, bottom: 60, right: 40), footerHeight: 80)
     var checkingGameStatus = false
     
@@ -69,17 +70,27 @@ extension GameViewController { // MARK: - Game
         }
         checkingGameStatus = true
         if game.isFinished {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                switch self.game.prize {
-                case .None:
-                    self.showRegisterViewController()
-                case .Textile, .Sneakers:
-                    self.showPrizeViewController()
-                }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.saveGame({ record in
+                    if let record = record {
+                        print(record)
+                        switch self.game.prize {
+                        case .None:
+                            self.showRegisterViewController()
+                        case .Textile, .Sneakers:
+                            self.showPrizeViewController()
+                        }
+                    }
+                })
             }
         } else {
             checkingGameStatus = false
         }
+    }
+    
+    fileprivate func saveGame(_ completion: (Record?)->()) {
+        // Save the game
+        Database.shared.saveGameWith(register: register, price: game.prize, completion: completion)
     }
 }
 

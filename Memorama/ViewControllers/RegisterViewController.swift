@@ -33,7 +33,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()        
         addNotificationObserver()
-        resetForm()
+        resetForm(debug: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +61,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Form
     
-    @objc fileprivate func resetForm() {
+    @objc fileprivate func resetForm(debug: Bool = false) {
         selectStoreButton.isHidden = true
         sendRecordsButton.isHidden = true
         nameLabel.textColor = .appDarkBlue
@@ -71,6 +71,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         ticketTextField.text = nil
         amountTextField.text = nil
         emailTextField.text = nil
+        if debug {
+            nameTextField.text = "Nombre"
+            ticketTextField.text = "AAAAA000000"
+            amountTextField.text = "1234.00"
+        }
     }
     
     // MARK: - UITextFieldDelegate
@@ -90,8 +95,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            showGame()
-//            validateForm()
+            validateForm()
         }
     }
     
@@ -149,6 +153,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     fileprivate func showGame() {
         performSegue(withIdentifier: "ShowInstructions", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "ShowInstructions", let instructionsViewController = segue.destination as? InstructionsViewController {
+                var register = Register()
+                register.name = nameTextField.text!
+                register.ticket = ticketTextField.text!
+                register.amount = amountTextField.text!
+                register.email = emailTextField.text ?? ""
+                instructionsViewController.register = register
+            }
+        }
     }
     
 }

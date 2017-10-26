@@ -75,7 +75,7 @@ class RecordsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let row = indexPath.row
-        var recordToUse: Juego? = nil
+        var recordToUse: Record? = nil
         if pendingRecordsSegment, let record = pendingRecords?[row] {
             recordToUse = record
         } else if !pendingRecordsSegment, let record = sentRecords?[row]{
@@ -83,7 +83,7 @@ class RecordsViewController: UITableViewController {
         }
         if let record = recordToUse {
             cell.textLabel?.text = "\(record.nombre) | \(record.ticket) | \(record.monto)"
-            cell.detailTextLabel?.text = "\(record.fecha) | Ganó: \(record.gano) | Premio: \(record.premio) | Tienda: \(record.sucursal)"
+            cell.detailTextLabel?.text = "\(record.fecha) | Ganó: \(record.gano) | Premio: \(record.premio) | Tienda: \(record.tienda)"
         }
         return cell
     }

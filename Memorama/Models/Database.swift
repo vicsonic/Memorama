@@ -10,8 +10,9 @@ import Foundation
 import Realm
 import RealmSwift
 
-// Game model
-class Juego: Object {
+// Record model
+class Record: Object {
+    @objc dynamic var id = UUID().uuidString
     @objc dynamic var nombre = ""
     @objc dynamic var ticket = ""
     @objc dynamic var monto = ""
@@ -19,13 +20,19 @@ class Juego: Object {
     @objc dynamic var gano = ""
     @objc dynamic var premio = ""
     @objc dynamic var fecha = ""
-    @objc dynamic var sucursal = ""
+    @objc dynamic var tienda = ""
     @objc dynamic var correo_enviado = ""
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
-// Store model
-class Tienda: Object {
-    @objc dynamic var nombre = ""
+// Register struct
+struct Register {
+    var name = ""
+    var ticket = ""
+    var amount = ""
+    var email = ""
 }
 
 class Database {
@@ -52,17 +59,17 @@ class Database {
         }
     }
     
-    var pendingRecords: (Results<Juego>)? {
+    var pendingRecords: (Results<Record>)? {
         if let realm = realm {
-            return realm.objects(Juego.self).filter("correo_enviado = 'no'")
+            return realm.objects(Record.self).filter("correo_enviado = 'no'")
         } else {
             return nil
         }
     }
     
-    var sentRecords: (Results<Juego>)? {
+    var sentRecords: (Results<Record>)? {
         if let realm = realm {
-            return realm.objects(Juego.self).filter("correo_enviado = 'si'")
+            return realm.objects(Record.self).filter("correo_enviado = 'si'")
         } else {
             return nil
         }
@@ -78,5 +85,41 @@ class Database {
         set {
             UserDefaults.standard.setValue(newValue, forKey: "store")
         }
+    }
+    
+    func saveGameWith(register: Register, price: Prize, completion: (Record?)->()) {
+        if let realm = realm {
+            let record = Record()
+            record.nombre = register.name
+            record.ticket = register.ticket
+            record.monto = register.amount
+            record.email = register.email
+            switch price {
+            case .None:
+                record.gano = "no"
+            case .Sneakers:
+                record.gano = "si"
+                record.premio = "tenis"
+            case .Textile:
+                record.gano = "si"
+                record.premio = "textil"
+            }
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .short
+            
+            record.fecha = formatter.string(from: Date())
+            record.tienda = store
+            record.correo_enviado = "no"
+            
+            try! realm.write {
+                realm.add(record)
+            }            
+            completion(record)
+        } else {
+            completion(nil)
+        }
+        
     }
 }

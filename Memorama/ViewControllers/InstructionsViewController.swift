@@ -9,7 +9,9 @@
 import UIKit
 
 class InstructionsViewController: UIViewController {
-
+    
+    var register = Register()
+    
     @IBOutlet weak var instructionsButton: UIButton!
     
     override func viewDidLoad() {
@@ -27,6 +29,16 @@ class InstructionsViewController: UIViewController {
     
     @IBAction func instructionsButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "ShowGame", sender: self)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "ShowGame", let gameViewController = segue.destination as? GameViewController {
+                gameViewController.register = register
+            }
+        }
     }
     
 }
