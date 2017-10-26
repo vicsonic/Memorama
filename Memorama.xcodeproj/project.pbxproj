@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		571A6BEC1FA0CD5D00AD25F8 /* DINOT-CondMedium_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */; };
 		571A6BED1FA0CD5D00AD25F8 /* DINPro-CondBold_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */; };
+		571B92801FA18AE700C5A383 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571B927F1FA18AE700C5A383 /* Database.swift */; };
+		576C2D591FA194370015FC32 /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C2D581FA194370015FC32 /* StoresViewController.swift */; };
 		577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */; };
 		577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */; };
 		577A57E51FA00D4200BBC1B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577A57E31FA00D4200BBC1B9 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 		547BF275C08700E3E4484E60 /* Pods-Memorama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memorama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memorama/Pods-Memorama.release.xcconfig"; sourceTree = "<group>"; };
 		571A6BEA1FA0CD5C00AD25F8 /* DINOT-CondMedium_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINOT-CondMedium_0.otf"; sourceTree = "<group>"; };
 		571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-CondBold_0.otf"; sourceTree = "<group>"; };
+		571B927F1FA18AE700C5A383 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		576C2D581FA194370015FC32 /* StoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
 		577A57DC1FA00D4200BBC1B9 /* Memorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				577A57F91FA02E2600BBC1B9 /* Layout.swift */,
 				577A57F71FA0220B00BBC1B9 /* Game.swift */,
 				577A57F51FA021FA00BBC1B9 /* Card.swift */,
+				571B927F1FA18AE700C5A383 /* Database.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				577A57FB1FA04AC300BBC1B9 /* PrizeViewController.swift */,
 				577A57F11FA01FE800BBC1B9 /* GameViewController.swift */,
 				577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */,
+				576C2D581FA194370015FC32 /* StoresViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -300,12 +306,14 @@
 			files = (
 				577A57F41FA0216400BBC1B9 /* CardCollectionViewCell.swift in Sources */,
 				577A57F81FA0220B00BBC1B9 /* Game.swift in Sources */,
+				576C2D591FA194370015FC32 /* StoresViewController.swift in Sources */,
 				577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */,
 				577A58021FA04C3100BBC1B9 /* InstructionsViewController.swift in Sources */,
 				577A57F61FA021FA00BBC1B9 /* Card.swift in Sources */,
 				577A57FA1FA02E2600BBC1B9 /* Layout.swift in Sources */,
 				577A57F21FA01FE800BBC1B9 /* GameViewController.swift in Sources */,
 				577A57FC1FA04AC300BBC1B9 /* PrizeViewController.swift in Sources */,
+				571B92801FA18AE700C5A383 /* Database.swift in Sources */,
 				577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

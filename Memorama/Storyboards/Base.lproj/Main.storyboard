@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="DINOT-CondMedium_0.otf">
+            <string>DINOT-CondMedium</string>
+        </array>
         <array key="DINPro-CondBold_0.otf">
             <string>DINPro-CondensedBold</string>
         </array>
@@ -27,8 +30,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Register" translatesAutoresizingMaskIntoConstraints="NO" id="Ery-Ot-zkH">
                                 <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterTop" translatesAutoresizingMaskIntoConstraints="NO" id="TXP-c9-Zug">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterTop" translatesAutoresizingMaskIntoConstraints="NO" id="TXP-c9-Zug">
                                 <rect key="frame" x="166" y="80" width="436" height="264"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Li-n2-v7h" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
@@ -306,13 +310,61 @@
                                     <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1qx-Vm-Jgz"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2YR-GE-JzV">
+                                <rect key="frame" x="0.0" y="974" width="768" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IF-tN-oIq">
+                                        <rect key="frame" x="50" y="0.0" width="160" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="5Bn-iJ-fDO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DINOT-CondMedium" family="DIN OT" pointSize="36"/>
+                                        <state key="normal" title="Tienda">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectStoreButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o2G-mW-681"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-BA-GuF">
+                                        <rect key="frame" x="458" y="0.0" width="260" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="Wmh-Au-s7E"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DINOT-CondMedium" family="DIN OT" pointSize="36"/>
+                                        <state key="normal" title="Enviar Registros">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendRecordsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZe-xe-foI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5Q4-im-HbO"/>
+                                    <constraint firstItem="cvj-BA-GuF" firstAttribute="top" secondItem="2YR-GE-JzV" secondAttribute="top" id="9IR-o9-cYk"/>
+                                    <constraint firstAttribute="bottom" secondItem="8IF-tN-oIq" secondAttribute="bottom" id="AdX-j3-Gfy"/>
+                                    <constraint firstItem="8IF-tN-oIq" firstAttribute="leading" secondItem="2YR-GE-JzV" secondAttribute="leading" constant="50" id="IGV-2C-eUk"/>
+                                    <constraint firstAttribute="trailing" secondItem="cvj-BA-GuF" secondAttribute="trailing" constant="50" id="sgs-lJ-AwR"/>
+                                    <constraint firstItem="8IF-tN-oIq" firstAttribute="top" secondItem="2YR-GE-JzV" secondAttribute="top" id="uyv-HK-bei"/>
+                                    <constraint firstAttribute="bottom" secondItem="cvj-BA-GuF" secondAttribute="bottom" id="ws1-O5-8Fp"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9sP-1y-HBm" appends="YES" id="v7a-3l-yUg"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PKa-Hn-mOS" secondAttribute="bottom" constant="60" id="0a1-gS-jqA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2YR-GE-JzV" secondAttribute="trailing" id="2QG-AL-Dyl"/>
                             <constraint firstItem="1Li-n2-v7h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Od-qj-ljT"/>
                             <constraint firstItem="Ery-Ot-zkH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A9p-ns-dPt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ery-Ot-zkH" secondAttribute="trailing" id="ATX-fy-Sfs"/>
+                            <constraint firstItem="2YR-GE-JzV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BzZ-lq-P6v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2YR-GE-JzV" secondAttribute="bottom" id="ODq-JC-fzy"/>
                             <constraint firstItem="1Li-n2-v7h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RX2-Is-KuX"/>
                             <constraint firstItem="PKa-Hn-mOS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Su0-st-blL"/>
                             <constraint firstItem="TXP-c9-Zug" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="XeO-Va-qJz"/>
@@ -330,19 +382,64 @@
                     <connections>
                         <outlet property="amountLabel" destination="QaR-fm-DDJ" id="BV2-UV-IGx"/>
                         <outlet property="amountTextField" destination="X9w-TB-xRx" id="8MP-Pt-wCw"/>
+                        <outlet property="controlsView" destination="2YR-GE-JzV" id="f51-xZ-vJ3"/>
                         <outlet property="emailLabel" destination="mLa-FU-RqC" id="5c8-4t-pps"/>
                         <outlet property="emailTextField" destination="2zq-cs-dZG" id="3u5-2u-WRq"/>
                         <outlet property="nameLabel" destination="lau-uG-QwG" id="Mfo-y1-oy3"/>
                         <outlet property="nameTextField" destination="tuZ-Bc-V1E" id="T1Y-Ls-Y5Y"/>
                         <outlet property="registerButton" destination="PKa-Hn-mOS" id="e27-34-gHX"/>
+                        <outlet property="selectStoreButton" destination="8IF-tN-oIq" id="9ft-KL-2zu"/>
+                        <outlet property="sendRecordsButton" destination="cvj-BA-GuF" id="X52-uH-WVz"/>
                         <outlet property="ticketLabel" destination="G3t-UG-7po" id="YRZ-P9-uDv"/>
                         <outlet property="ticketTextField" destination="24y-zz-1FS" id="iS6-k2-Yp8"/>
                         <segue destination="7Vh-Pc-Jtx" kind="show" identifier="ShowInstructions" id="erJ-31-WrC"/>
+                        <segue destination="0HT-Ih-PgW" kind="presentation" identifier="PresentStores" modalPresentationStyle="formSheet" id="HYe-j7-6cS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9sP-1y-HBm">
+                    <connections>
+                        <action selector="tapGestureDetected:" destination="BYZ-38-t0r" id="SY6-Gr-jYf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1012.5" y="-108.3984375"/>
+        </scene>
+        <!--Tiendas-->
+        <scene sceneID="A4i-gb-9Hm">
+            <objects>
+                <tableViewController id="lFY-7C-jMI" customClass="StoresViewController" customModule="Memorama" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iwr-QR-YqH">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="576"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="KBe-1U-ppc">
+                                <rect key="frame" x="0.0" y="28" width="540" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KBe-1U-ppc" id="Qky-HJ-obx">
+                                    <rect key="frame" x="0.0" y="0.0" width="540" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="tintColor" red="0.0039215686269999999" green="0.30196078430000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lFY-7C-jMI" id="3dc-eI-WWE"/>
+                            <outlet property="delegate" destination="lFY-7C-jMI" id="LUq-Z2-5im"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tiendas" id="r3J-dP-Mfa">
+                        <barButtonItem key="rightBarButtonItem" title="Aceptar" style="done" id="hqT-AV-dHM">
+                            <connections>
+                                <action selector="acceptButtonPressed:" destination="lFY-7C-jMI" id="dOh-YJ-DjS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ys-ky-s7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013" y="615"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="Idt-3j-ym6">
@@ -546,6 +643,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNo-dk-Yom" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="273" y="-108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nj3-Vg-bMt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0HT-Ih-PgW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="otR-kV-FZM">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0039215686269999999" green="0.30196078430000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lFY-7C-jMI" kind="relationship" relationship="rootViewController" id="a07-cJ-yIP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZOC-vq-xMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="273" y="615"/>
         </scene>
     </scenes>
     <resources>

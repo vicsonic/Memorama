@@ -26,6 +26,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
+    @IBOutlet weak var controlsView: UIView!
+    @IBOutlet weak var selectStoreButton: UIButton!
+    @IBOutlet weak var sendRecordsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObserver()
@@ -58,6 +62,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Form
     
     @objc fileprivate func resetForm() {
+        selectStoreButton.isHidden = true
+        sendRecordsButton.isHidden = true
         nameLabel.textColor = .appDarkBlue
         ticketLabel.textColor = .appDarkBlue
         amountLabel.textColor = .appDarkBlue
@@ -76,8 +82,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        showGame()
-//        validateForm()
+        if Database.shared.tienda == "" {
+            let alert = UIAlertController(title: "Escoge Tienda", message: "Anter de empezar, escoge una tienda", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Escoger", style: .default, handler: { _ in
+                self.selectStoreButtonPressed(self.selectStoreButton)
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            showGame()
+//            validateForm()
+        }
+    }
+    
+    @IBAction func tapGestureDetected(_ sender: Any) {
+        UIView.animate(withDuration: 0.4) {
+            self.selectStoreButton.isHidden = !self.selectStoreButton.isHidden
+            self.sendRecordsButton.isHidden = !self.sendRecordsButton.isHidden
+        }
+    }
+            
+    @IBAction func selectStoreButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "PresentStores", sender: self)
+    }
+    
+    @IBAction func sendRecordsButtonPressed(_ sender: Any) {
     }
     
     // MARK: - Validations
