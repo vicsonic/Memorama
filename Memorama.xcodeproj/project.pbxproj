@@ -11,6 +11,7 @@
 		571A6BED1FA0CD5D00AD25F8 /* DINPro-CondBold_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */; };
 		571B92801FA18AE700C5A383 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571B927F1FA18AE700C5A383 /* Database.swift */; };
 		576C2D591FA194370015FC32 /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C2D581FA194370015FC32 /* StoresViewController.swift */; };
+		576C2D5B1FA19BA80015FC32 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C2D5A1FA19BA80015FC32 /* RecordsViewController.swift */; };
 		577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */; };
 		577A57E21FA00D4200BBC1B9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */; };
 		577A57E51FA00D4200BBC1B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577A57E31FA00D4200BBC1B9 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		571A6BEB1FA0CD5C00AD25F8 /* DINPro-CondBold_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-CondBold_0.otf"; sourceTree = "<group>"; };
 		571B927F1FA18AE700C5A383 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		576C2D581FA194370015FC32 /* StoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewController.swift; sourceTree = "<group>"; };
+		576C2D5A1FA19BA80015FC32 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		577A57DC1FA00D4200BBC1B9 /* Memorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577A57DF1FA00D4200BBC1B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		577A57E11FA00D4200BBC1B9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				577A57F11FA01FE800BBC1B9 /* GameViewController.swift */,
 				577A58011FA04C3100BBC1B9 /* InstructionsViewController.swift */,
 				576C2D581FA194370015FC32 /* StoresViewController.swift */,
+				576C2D5A1FA19BA80015FC32 /* RecordsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				577A57FC1FA04AC300BBC1B9 /* PrizeViewController.swift in Sources */,
 				571B92801FA18AE700C5A383 /* Database.swift in Sources */,
 				577A57E01FA00D4200BBC1B9 /* AppDelegate.swift in Sources */,
+				576C2D5B1FA19BA80015FC32 /* RecordsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

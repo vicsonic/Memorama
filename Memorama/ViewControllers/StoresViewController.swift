@@ -29,12 +29,12 @@ class StoresViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let store = Database.stores[indexPath.row]
         cell.textLabel?.text = store
-        cell.accessoryType = store == Database.shared.tienda ? .checkmark : .none
+        cell.accessoryType = store == Database.shared.store ? .checkmark : .none
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Database.shared.tienda = Database.stores[indexPath.row]
+        Database.shared.store = Database.stores[indexPath.row]
         tableView.reloadData()
     }
 

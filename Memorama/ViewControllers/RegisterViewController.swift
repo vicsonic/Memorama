@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var sendRecordsButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         addNotificationObserver()
         resetForm()
     }
@@ -82,7 +82,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        if Database.shared.tienda == "" {
+        if Database.shared.store == "" {
             let alert = UIAlertController(title: "Escoge Tienda", message: "Anter de empezar, escoge una tienda", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Escoger", style: .default, handler: { _ in
                 self.selectStoreButtonPressed(self.selectStoreButton)
@@ -107,6 +107,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendRecordsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "PresentRecords", sender: self)
     }
     
     // MARK: - Validations

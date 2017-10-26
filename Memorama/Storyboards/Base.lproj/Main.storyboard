@@ -254,7 +254,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Campos obligatorios" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75Y-FR-EwZ">
-                                                        <rect key="frame" x="522.5" y="480" width="160.5" height="24"/>
+                                                        <rect key="frame" x="470.5" y="480" width="212.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="JvG-x2-JsI"/>
                                                         </constraints>
@@ -394,6 +394,7 @@
                         <outlet property="ticketTextField" destination="24y-zz-1FS" id="iS6-k2-Yp8"/>
                         <segue destination="7Vh-Pc-Jtx" kind="show" identifier="ShowInstructions" id="erJ-31-WrC"/>
                         <segue destination="0HT-Ih-PgW" kind="presentation" identifier="PresentStores" modalPresentationStyle="formSheet" id="HYe-j7-6cS"/>
+                        <segue destination="II2-xg-lwT" kind="presentation" identifier="PresentRecords" modalPresentationStyle="formSheet" id="NqQ-rB-BAT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -587,6 +588,91 @@
             </objects>
             <point key="canvasLocation" x="2417" y="-108"/>
         </scene>
+        <!--Registros-->
+        <scene sceneID="UBg-k9-KLb">
+            <objects>
+                <tableViewController id="7K2-M6-Zil" customClass="RecordsViewController" customModule="Memorama" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="asG-Mo-JIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="576"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="NVc-bf-5q6">
+                            <rect key="frame" x="0.0" y="0.0" width="540" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3af-Ac-eSt">
+                                    <rect key="frame" x="20" y="11" width="500" height="29"/>
+                                    <segments>
+                                        <segment title="Pendientes"/>
+                                        <segment title="Enviados"/>
+                                    </segments>
+                                    <color key="tintColor" red="0.0039215686269999999" green="0.30196078430000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="valueChangedInSegmentedControl:" destination="7K2-M6-Zil" eventType="valueChanged" id="aps-Wz-UZi"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="3af-Ac-eSt" secondAttribute="trailing" constant="20" id="1et-MO-cpD"/>
+                                <constraint firstItem="3af-Ac-eSt" firstAttribute="leading" secondItem="NVc-bf-5q6" secondAttribute="leading" constant="20" id="UkN-kh-Vp1"/>
+                                <constraint firstItem="3af-Ac-eSt" firstAttribute="centerY" secondItem="NVc-bf-5q6" secondAttribute="centerY" id="Ztp-cj-VOp"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="a7l-8v-Q2w" detailTextLabel="Pbc-ZR-BAp" style="IBUITableViewCellStyleSubtitle" id="9Zw-rj-kZB">
+                                <rect key="frame" x="0.0" y="78" width="540" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Zw-rj-kZB" id="qVI-at-wMw">
+                                    <rect key="frame" x="0.0" y="0.0" width="540" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a7l-8v-Q2w">
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pbc-ZR-BAp">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7K2-M6-Zil" id="BFS-ee-RCQ"/>
+                            <outlet property="delegate" destination="7K2-M6-Zil" id="bRz-HI-G0j"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Registros" id="H3S-h0-Tif">
+                        <barButtonItem key="leftBarButtonItem" title="Cerrar" id="Go6-jp-vB0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="7K2-M6-Zil" id="G7f-68-JYk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Enviar" style="done" id="j4H-CD-bZm">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="7K2-M6-Zil" id="r0H-Ob-EwI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="actionButton" destination="j4H-CD-bZm" id="Nht-xM-9b8"/>
+                        <outlet property="closeButton" destination="Go6-jp-vB0" id="fAF-eY-1IA"/>
+                        <outlet property="segmentedControl" destination="3af-Ac-eSt" id="NyY-Ck-AC6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e11-GG-5SU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812" y="623"/>
+        </scene>
         <!--Prize View Controller-->
         <scene sceneID="ec5-0m-Ftp">
             <objects>
@@ -666,6 +752,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOC-vq-xMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="273" y="615"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JER-Eh-zrn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="II2-xg-lwT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="yZ2-um-JIu">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0039215686269999999" green="0.30196078430000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7K2-M6-Zil" kind="relationship" relationship="rootViewController" id="NDF-Di-zqU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Vm-Ek-XDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2111" y="623"/>
         </scene>
     </scenes>
     <resources>

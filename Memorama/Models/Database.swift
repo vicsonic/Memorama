@@ -52,26 +52,31 @@ class Database {
         }
     }
     
-    var juegos: (Results<Juego>)? {
+    var pendingRecords: (Results<Juego>)? {
         if let realm = realm {
-            return realm.objects(Juego.self)
+            return realm.objects(Juego.self).filter("correo_enviado = 'no'")
         } else {
             return nil
         }
     }
     
-    var tienda: String {
+    var sentRecords: (Results<Juego>)? {
+        if let realm = realm {
+            return realm.objects(Juego.self).filter("correo_enviado = 'si'")
+        } else {
+            return nil
+        }
+    }
+    
+    var store: String {
         get {
-            if let value = UserDefaults.standard.string(forKey: "tienda") {
+            if let value = UserDefaults.standard.string(forKey: "store") {
                 return value
             }
             return ""
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: "tienda")
+            UserDefaults.standard.setValue(newValue, forKey: "store")
         }
     }
-    
-    
-    
 }
