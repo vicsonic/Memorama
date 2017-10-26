@@ -5,6 +5,8 @@ target 'Memorama' do
   use_frameworks!
 
   # Pods for Memorama
+  pod 'Fabric'
+  pod 'Crashlytics'
   pod 'RealmSwift'
   pod 'TPKeyboardAvoiding', '~> 1.3'
 

@@ -48,7 +48,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
@@ -254,7 +254,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Campos obligatorios" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75Y-FR-EwZ">
-                                                        <rect key="frame" x="470.5" y="480" width="212.5" height="24"/>
+                                                        <rect key="frame" x="522.5" y="480" width="160.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="JvG-x2-JsI"/>
                                                         </constraints>
@@ -411,7 +411,7 @@
             <objects>
                 <tableViewController id="lFY-7C-jMI" customClass="StoresViewController" customModule="Memorama" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iwr-QR-YqH">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="576"/>
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -593,7 +593,7 @@
             <objects>
                 <tableViewController id="7K2-M6-Zil" customClass="RecordsViewController" customModule="Memorama" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="asG-Mo-JIJ">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="576"/>
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="NVc-bf-5q6">
@@ -736,7 +736,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0HT-Ih-PgW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="otR-kV-FZM">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.0039215686269999999" green="0.30196078430000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -759,7 +759,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="II2-xg-lwT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="yZ2-um-JIu">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.0039215686269999999" green="0.30196078430000001" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
