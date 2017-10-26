@@ -71,7 +71,7 @@ extension GameViewController { // MARK: - Game
         }
         checkingGameStatus = true
         if game.isFinished {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 SVProgressHUD.show()
                 self.saveGame({ record in
                     if let _ = record {

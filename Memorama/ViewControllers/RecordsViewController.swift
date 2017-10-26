@@ -161,7 +161,7 @@ extension RecordsViewController : MFMailComposeViewControllerDelegate {
     fileprivate func sendEmailWith(data: Data) {
         if MFMailComposeViewController.canSendMail() {
             let mailComposer = MFMailComposeViewController()
-            mailComposer.mailComposeDelegate = self
+            mailComposer.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
             mailComposer.setToRecipients(["hazparconreebok@gmail.com"])
             mailComposer.setSubject("Registros: Haz Par con Reebok")
             mailComposer.addAttachmentData(data, mimeType: "text/csv", fileName: "Registros_Reebok.csv")
@@ -195,6 +195,7 @@ extension RecordsViewController : MFMailComposeViewControllerDelegate {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
+        dismiss(animated: true, completion: nil)
     }
     
 }

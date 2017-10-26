@@ -16,7 +16,7 @@ class Game {
         case None
     }
     
-    static let pairsToFind = 2
+    static let pairsToFind = 1
     static let maxNumberOfTurns = 3
     
     let images = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
@@ -96,7 +96,7 @@ class Game {
         var counts = [Int: Int]()
         foundPrizes.forEach { counts[$0] = (counts[$0] ?? 0) + 1 }
         if let (priceValue, _) = counts.first(where: { key, value -> Bool in
-            return value >= 2
+            return value >= 1
         }), let prize = Prize(rawValue: priceValue) {
             self.prize = prize
         } else {
