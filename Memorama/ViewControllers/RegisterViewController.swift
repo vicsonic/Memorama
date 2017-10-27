@@ -153,6 +153,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     fileprivate func showGame() {
         performSegue(withIdentifier: "ShowInstructions", sender: self)
+        resetForm()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
